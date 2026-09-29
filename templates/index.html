@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Notes App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .note {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Notes App</h1>
+
+    <form action="/add" method="POST">
+
+        <input
+            type="text"
+            name="title"
+            placeholder="Note title"
+            required
+        >
+
+        <textarea
+            name="content"
+            placeholder="Write your note..."
+            required
+        ></textarea>
+
+        <button type="submit">
+            Add Note
+        </button>
+
+    </form>
+
+    <h2>My Notes</h2>
+
+    {% for note in notes %}
+
+        <div class="note">
+
+            <h3>{{ note[1] }}</h3>
+
+            <p>{{ note[2] }}</p>
+
+        </div>
+
+    {% endfor %}
+
+</body>
+</html>
